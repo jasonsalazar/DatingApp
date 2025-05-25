@@ -84,7 +84,7 @@
   }
 </div>
 
-@if (memberService.paginatedResult()?.pagination) {
+@if ((memberService.paginatedResult()?.pagination)!.totalPages > 1) {
 <div class="d-flex justify-content-center">
   <pagination
     [boundaryLinks]="true"
