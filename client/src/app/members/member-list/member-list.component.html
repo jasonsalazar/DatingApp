@@ -7,7 +7,7 @@
   </div>
 
   <div class="container mt-3">
-    <form #form="ngForm" class="d-flex mb-3" (ngSubmit)="loadMembers()">
+    <form #form="ngForm" class="d-flex mb-3" (ngSubmit)="applyFilter()">
       <div class="d-flex mx-2">
         <label class="col-form-label">Age from: </label>
         <input
@@ -84,7 +84,7 @@
   }
 </div>
 
-@if ((memberService.paginatedResult()?.pagination)!.totalPages > 1) {
+@if (memberService.paginatedResult()?.pagination?.totalPages! > 1) {
 <div class="d-flex justify-content-center">
   <pagination
     [boundaryLinks]="true"

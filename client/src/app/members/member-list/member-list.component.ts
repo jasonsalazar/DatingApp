@@ -22,11 +22,16 @@ export class MemberListComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    if (!this.memberService.paginatedResult()) this.loadMembers();
+    if (!this.memberService.paginatedResult()) this.applyFilter();
   }
 
   loadMembers() {
     this.memberService.getMembers();
+  }
+
+  applyFilter() {
+    this.memberService.userParams().pageNumber = 1; // Reset to first page on filter change
+    this.loadMembers();
   }
 
   resetFilters() {
